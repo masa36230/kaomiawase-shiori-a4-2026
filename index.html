@@ -5,66 +5,346 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>両家顔合わせの会（2026年5月3日）｜しおり</title>
   <meta name="description" content="海津家・鈴木家 両家顔合わせの会 しおり（First Family Gathering）" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #f4f2ef;
-      --paper: #ffffff;
-      --ink: #3a3a3a;
+      --paper: #fffefb;
+      --ink: #3d3835;
+      --muted: #6e6862;
+      --line: rgba(61, 56, 53, 0.18);
+      --blob-pink: #e8d8d8;
+      --blob-taupe: #c4bdb2;
+      --soft: #faf7f4;
     }
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
       color: var(--ink);
       background: var(--bg);
-      line-height: 1.6;
+      line-height: 1.65;
+      font-size: clamp(0.95rem, 0.88rem + 0.35vw, 1.05rem);
     }
     main {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.75rem 0.75rem 2rem;
+      padding: 0.75rem 0.75rem 2.5rem;
     }
-    figure.spread {
+
+    /* ----- デスクトップ: Canva 書き出し（表紙・見開き） ----- */
+    .brochure-visual figure.spread {
       margin: 0 0 1.75rem;
       background: var(--paper);
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
     }
-    figure.spread img {
+    .brochure-visual figure.spread img {
       display: block;
       width: 100%;
       height: auto;
       vertical-align: bottom;
     }
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    .brochure-visual .spread--inner {
+      position: relative;
     }
+    /* 右下の「線の入ったグレーブロック」が背景と変に見えるのを、輪郭なしの柔らかい塊で馴染ませる */
+    .brochure-visual .spread--inner .corner-softener {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      inset: auto 0 0 auto;
+      width: 34%;
+      height: 36%;
+      background:
+        radial-gradient(ellipse 95% 85% at 88% 92%, rgba(250, 247, 244, 0.98) 0%, rgba(250, 247, 244, 0.55) 48%, rgba(250, 247, 244, 0) 74%),
+        radial-gradient(ellipse 70% 60% at 78% 96%, rgba(232, 216, 216, 0.45) 0%, rgba(232, 216, 216, 0) 70%);
+      filter: blur(0.35px);
+    }
+
+    /* ----- モバイル: テキスト中心レイアウト ----- */
+    .brochure-markup {
+      display: none;
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 0.25rem 0.5rem 2rem;
+    }
+    .sheet {
+      position: relative;
+      background: var(--paper);
+      border-radius: 14px;
+      padding: clamp(1.1rem, 3vw, 1.75rem);
+      margin-bottom: 1.25rem;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: auto -18% -22% auto;
+      width: 58%;
+      height: 46%;
+      background: radial-gradient(ellipse at 70% 80%, rgba(196, 189, 178, 0.35) 0%, rgba(196, 189, 178, 0) 68%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .sheet::after {
+      content: "";
+      position: absolute;
+      inset: -16% auto auto -14%;
+      width: 52%;
+      height: 42%;
+      background: radial-gradient(ellipse at 20% 20%, rgba(232, 216, 216, 0.45) 0%, rgba(232, 216, 216, 0) 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .sheet > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-family: "Cinzel", "Times New Roman", serif;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 0.35rem;
+    }
+    h1,
+    h2,
+    h3 {
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 0.5rem;
+      line-height: 1.35;
+    }
+    h1 {
+      font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.75rem);
+    }
+    h2 {
+      font-size: clamp(1.15rem, 1rem + 0.6vw, 1.35rem);
+      margin-top: 0.25rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      text-align: left;
+      margin: 1.25rem 0 0.5rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .thankyou {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2rem, 1.4rem + 2.5vw, 2.75rem);
+      text-align: center;
+      margin: 0.25rem 0 0.75rem;
+      color: #5a524c;
+    }
+    .families-line {
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.25rem;
+    }
+    .subtitle-en {
+      font-family: "Cinzel", serif;
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin: 0 0 1rem;
+    }
+    .kotobuki {
+      position: absolute;
+      right: -0.25rem;
+      top: 42%;
+      transform: translateY(-50%);
+      font-size: clamp(4.5rem, 14vw, 7rem);
+      color: rgba(232, 216, 216, 0.45);
+      font-weight: 700;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .cover-meta {
+      text-align: center;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+    }
+    .cover-note {
+      font-size: 0.92rem;
+      text-align: center;
+      margin: 1rem 0 0;
+      color: var(--ink);
+    }
+
+    ol.program {
+      margin: 0.5rem 0 0;
+      padding-left: 1.35rem;
+    }
+    ol.program li {
+      margin: 0.35rem 0;
+    }
+
+    .legend {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+      margin: 0 0 1rem;
+      line-height: 1.5;
+    }
+
+    .couple-names {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.5rem;
+      margin: 0.75rem 0 1rem;
+      font-weight: 700;
+    }
+
+    table.profile {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    table.profile th,
+    table.profile td {
+      border-bottom: 1px solid var(--line);
+      padding: 0.55rem 0.35rem;
+      vertical-align: top;
+    }
+    table.profile th {
+      width: 28%;
+      font-weight: 600;
+      text-align: center;
+      background: rgba(250, 247, 244, 0.65);
+    }
+    table.profile td {
+      width: 36%;
+    }
+
+    .person {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.65rem 0.85rem;
+      align-items: start;
+      margin: 0.85rem 0;
+    }
+    .person .avatar {
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 999px;
+      background: linear-gradient(145deg, var(--blob-pink), #f0e4e4);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      flex-shrink: 0;
+    }
+    .person strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    .person p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #454039;
+    }
+
+    .bubble {
+      display: inline-block;
+      margin-top: 0.35rem;
+      padding: 0.45rem 0.65rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(61, 56, 53, 0.1);
+      font-size: 0.86rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .mother-note {
+      font-size: 0.88rem;
+      margin: 0.75rem 0 0;
+      padding: 0.75rem 0.65rem;
+      background: rgba(250, 247, 244, 0.9);
+      border-radius: 10px;
+      border: 1px solid rgba(61, 56, 53, 0.08);
+    }
+
+    @media (max-width: 900px) {
+      .brochure-visual {
+        display: none;
+      }
+      .brochure-markup {
+        display: block;
+      }
+    }
+
+    @media (min-width: 901px) {
+      .brochure-visual {
+        display: block;
+      }
+      .brochure-markup {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      table.profile,
+      table.profile tbody,
+      table.profile tr,
+      table.profile th,
+      table.profile td {
+        display: block;
+        width: 100%;
+      }
+      table.profile th {
+        border-bottom: none;
+        padding-bottom: 0.15rem;
+        background: transparent;
+      }
+      table.profile td {
+        border-bottom: 1px solid var(--line);
+        padding-top: 0.15rem;
+      }
+      table.profile td:last-child {
+        padding-bottom: 0.65rem;
+        margin-bottom: 0.35rem;
+      }
+    }
+
     @media print {
       body {
         background: #fff;
+      }
+      .brochure-markup {
+        display: none !important;
+      }
+      .brochure-visual {
+        display: block !important;
+      }
+      .brochure-visual .corner-softener {
+        display: none;
       }
       main {
         max-width: none;
         padding: 0;
       }
-      figure.spread {
+      .brochure-visual figure.spread {
         box-shadow: none;
         border-radius: 0;
         page-break-after: always;
         break-after: page;
       }
-      figure.spread:last-of-type {
+      .brochure-visual figure.spread:last-of-type {
         page-break-after: auto;
         break-after: auto;
       }
@@ -73,82 +353,158 @@
 </head>
 <body>
   <main>
-    <article class="sr-only" aria-label="しおりの全文（表紙・本文のテキスト）">
-      <h2>表紙</h2>
-      <p>Thank you</p>
-      <p>海津家　鈴木家</p>
-      <p>両家顔合わせの会</p>
-      <p>First Family Gathering</p>
-      <p>2026年5月3日　12時</p>
-      <p>個室和食「東山」新宿本店にて</p>
-      <p>
-        本日はお忙しい中お集まりいただき<br />
-        誠にありがとうございます<br />
-        両家の親睦を深めるよい機会となりますよう<br />
-        よろしくお願いいたします
-      </p>
-      <p>寿</p>
+    <div class="brochure-visual">
+      <figure class="spread">
+        <img
+          src="assets/spread_cover.png"
+          width="2000"
+          height="1414"
+          alt="表紙。Thank you、海津家・鈴木家、両家顔合わせの会、First Family Gathering、2026年5月3日12時、個室和食「東山」新宿本店にて、および挨拶文。"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </figure>
 
-      <h2>本日の流れ（Program）</h2>
-      <ol>
-        <li>開会のごあいさつ</li>
-        <li>両家の自己紹介</li>
-        <li>食事・歓談</li>
-        <li>今後の予定について</li>
-        <li>閉会のごあいさつ</li>
-      </ol>
+      <figure class="spread spread--inner">
+        <img
+          src="assets/spread_inner.png"
+          width="2000"
+          height="1414"
+          alt="本日の流れ、プロフィール、家族の紹介（海津家・鈴木家）の見開き。"
+          decoding="async"
+          loading="lazy"
+        />
+        <span class="corner-softener" aria-hidden="true"></span>
+      </figure>
+    </div>
 
-      <h2>プロフィール（Profile）</h2>
-      <p>海津　真史（Kaitsu Masafumi）／鈴木　渚沙（Suzuki Nagisa）</p>
-      <table>
-        <tbody>
-          <tr><th>生年月日</th><td>1995年10月5日</td><td>1996年8月6日</td></tr>
-          <tr><th>①出身地</th><td>神奈川県秦野市</td><td>東京都品川区</td></tr>
-          <tr><th>職業</th><td>会社員</td><td>小学校教員</td></tr>
-          <tr><th>②趣味</th><td>筋トレ・AI活用</td><td>読書・運動・睡眠</td></tr>
-          <tr><th>③好きな食べ物</th><td>食べること、掃除</td><td>ハヤシライス</td></tr>
-          <tr><th>④マイブーム</th><td>AI活用、からあげ弁当</td><td>麻雀・編み物</td></tr>
-        </tbody>
-      </table>
+    <div class="brochure-markup">
+      <section class="sheet cover-sheet" aria-label="表紙">
+        <p class="thankyou">Thank you</p>
+        <p class="families-line">海津家　鈴木家</p>
+        <h1>両家顔合わせの会</h1>
+        <p class="subtitle-en">First Family Gathering</p>
+        <span class="kotobuki" aria-hidden="true">寿</span>
+        <p class="cover-meta">2026年5月3日　12時</p>
+        <p class="cover-meta">個室和食「東山」新宿本店にて</p>
+        <div class="cover-note">
+          <p>本日はお忙しい中お集まりいただき</p>
+          <p>誠にありがとうございます</p>
+          <p>両家の親睦を深めるよい機会となりますよう</p>
+          <p>よろしくお願いいたします</p>
+        </div>
+      </section>
 
-      <h2>家族の紹介（Our Families）</h2>
-      <p>①出身地　②趣味　③好きな食べ物　④最近ハマっていること</p>
+      <section class="sheet" aria-labelledby="prog-h">
+        <p class="eyebrow">Program</p>
+        <h2 id="prog-h">本日の流れ</h2>
+        <ol class="program">
+          <li>開会のごあいさつ</li>
+          <li>両家の自己紹介</li>
+          <li>食事・歓談</li>
+          <li>今後の予定について</li>
+          <li>閉会のごあいさつ</li>
+        </ol>
+      </section>
 
-      <h3>海津家</h3>
-      <p>新郎父　素夫：①東京都八王子　②バドミントン、骨董(焼物)、料理　③何でも好き　④仏の修行かなぁ</p>
-      <p>新郎母　晴子：①東京都八王子　②バドミントン、競馬、動物園　③チーズ　④お墓参り、読書</p>
-      <p>新郎兄　直央：ゲーム好きな兄もいます。</p>
+      <section class="sheet" aria-labelledby="prof-h">
+        <p class="eyebrow">Profile</p>
+        <h2 id="prof-h">プロフィール</h2>
+        <div class="couple-names">
+          <span>海津　真史</span>
+          <span>鈴木　渚沙</span>
+        </div>
+        <table class="profile">
+          <tbody>
+            <tr>
+              <th>生年月日</th>
+              <td>1995年10月5日</td>
+              <td>1996年8月6日</td>
+            </tr>
+            <tr>
+              <th>①出身地</th>
+              <td>神奈川県秦野市</td>
+              <td>東京都品川区</td>
+            </tr>
+            <tr>
+              <th>職業</th>
+              <td>会社員</td>
+              <td>小学校教員</td>
+            </tr>
+            <tr>
+              <th>②趣味</th>
+              <td>筋トレ・AI活用</td>
+              <td>読書・運動・睡眠</td>
+            </tr>
+            <tr>
+              <th>③好きな食べ物</th>
+              <td>食べること、掃除</td>
+              <td>ハヤシライス</td>
+            </tr>
+            <tr>
+              <th>④マイブーム</th>
+              <td>AI活用、からあげ弁当</td>
+              <td>麻雀・編み物</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-      <h3>鈴木家</h3>
-      <p>新婦父　勝雅：①東京都品川区　②MLB観戦　③和食　④大谷翔平</p>
-      <p>新婦母　智子：①東京都品川区　②音楽鑑賞　③ハンバーグ・お刺身　④リフトアップ・体操</p>
-      <p>
-        のんびりした性格の私が育ててきたので、ちょっと抜けている所がある反面、負けず嫌いでしっかり者な面もあります。でも、素直に育ってくれたと思っています。そんな娘ですが、どうぞよろしくお願いいたします。
-      </p>
-      <p>新婦兄　優也：筋トレ好きな兄もいます。</p>
-    </article>
+      <section class="sheet" aria-labelledby="fam-h">
+        <p class="eyebrow">Our Families</p>
+        <h2 id="fam-h">家族の紹介</h2>
+        <p class="legend">①出身地　②趣味　③好きな食べ物　④最近ハマっていること</p>
 
-    <figure class="spread">
-      <img
-        src="assets/spread_cover.png"
-        width="2000"
-        height="1414"
-        alt="表紙。Thank you、海津家・鈴木家、両家顔合わせの会、First Family Gathering、2026年5月3日12時、個室和食「東山」新宿本店にて、および挨拶文。背景に寿の透かし文字。"
-        decoding="async"
-        fetchpriority="high"
-      />
-    </figure>
+        <h3>海津家</h3>
+        <div class="person">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <strong>新郎父　素夫</strong>
+            <p>①東京都八王子　②バドミントン、骨董(焼物)、料理　③何でも好き　④仏の修行かなぁ</p>
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <strong>新郎母　晴子</strong>
+            <p>①東京都八王子　②バドミントン、競馬、動物園　③チーズ　④お墓参り、読書</p>
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <strong>新郎兄　直央</strong>
+            <p><span class="bubble">ゲーム好きな兄もいます。</span></p>
+          </div>
+        </div>
 
-    <figure class="spread">
-      <img
-        src="assets/spread_inner.png"
-        width="2000"
-        height="1414"
-        alt="本日の流れ、プロフィール、家族の紹介（海津家・鈴木家）の見開き。"
-        decoding="async"
-        loading="lazy"
-      />
-    </figure>
+        <h3>鈴木家</h3>
+        <div class="person">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <strong>新婦父　勝雅</strong>
+            <p>①東京都品川区　②MLB観戦　③和食　④大谷翔平</p>
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <strong>新婦母　智子</strong>
+            <p>①東京都品川区　②音楽鑑賞　③ハンバーグ・お刺身　④リフトアップ・体操</p>
+            <p class="mother-note">
+              のんびりした性格の私が育ててきたので、ちょっと抜けている所がある反面、負けず嫌いでしっかり者な面もあります。でも、素直に育ってくれたと思っています。そんな娘ですが、どうぞよろしくお願いいたします。
+            </p>
+          </div>
+        </div>
+        <div class="person">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <strong>新婦兄　優也</strong>
+            <p><span class="bubble">筋トレ好きな兄もいます。</span></p>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 </body>
 </html>
