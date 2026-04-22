@@ -64,7 +64,7 @@
       }
     }
 
-    /* ----- モバイル: 画像を先にフル幅で、その下にテキスト ----- */
+    /* ----- モバイル: 見開きPNGのみ（表紙PNGは非表示）、その下にテキスト ----- */
     @media (max-width: 900px) {
       main {
         padding-left: var(--safe-x);
@@ -76,6 +76,10 @@
         margin: 0 calc(50% - 50vw) 1.25rem;
         width: 100vw;
         max-width: 100vw;
+      }
+      /* スマホでは Canva 表紙（Thank you 面＋表紙）の1枚目を出さない */
+      .brochure-visual figure.spread:first-of-type {
+        display: none;
       }
       .brochure-visual figure.spread {
         margin: 0 0 2px;
@@ -239,10 +243,30 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
-      margin: 0.75rem 0 1rem;
+      margin: 0.35rem 0 0.85rem;
       font-weight: 700;
       font-size: 0.98rem;
       text-align: center;
+    }
+
+    /* プロフィール: 二人のイラスト（見開きPNGから切り出し） */
+    .couple-portraits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      margin: 0 0 1rem;
+    }
+    .couple-portraits .cp-fig {
+      margin: 0;
+      background: #faf8f6;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .couple-portraits .cp-fig img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     /* プロフィール: 表はデスクトップ用に残さず、常にカード行（モバイルで読みやすい） */
@@ -298,22 +322,27 @@
       margin-bottom: 0.75rem;
       background: #fff;
     }
-    .member-card .head {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      margin-bottom: 0.55rem;
+    .member-card .member-photo {
+      margin: 0 0 0.65rem;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #faf8f6;
+      border: 1px solid var(--line);
+      text-align: center;
     }
-    .member-card .avatar {
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: 999px;
-      background: linear-gradient(145deg, var(--blob-pink), #f2e8e8);
-      flex-shrink: 0;
+    .member-card .member-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(70vw, 340px);
+      object-fit: contain;
+      margin: 0 auto;
     }
     .member-card strong {
+      display: block;
       font-size: 1rem;
       font-weight: 700;
+      margin-bottom: 0.45rem;
     }
     .member-card .body {
       font-size: 0.95rem;
@@ -443,6 +472,28 @@
       <section class="sheet" aria-labelledby="prof-h">
         <p class="eyebrow">Profile</p>
         <h2 id="prof-h">プロフィール</h2>
+        <div class="couple-portraits">
+          <figure class="cp-fig">
+            <img
+              src="assets/profile_groom.png?v=3"
+              width="354"
+              height="250"
+              alt="海津真史のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="cp-fig">
+            <img
+              src="assets/profile_bride.png?v=3"
+              width="354"
+              height="250"
+              alt="鈴木渚沙のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
+          </figure>
+        </div>
         <div class="couple-names">
           <span>海津　真史</span>
           <span>鈴木　渚沙</span>
@@ -500,10 +551,17 @@
 
         <h3>海津家</h3>
         <article class="member-card">
-          <div class="head">
-            <div class="avatar" aria-hidden="true"></div>
-            <strong>新郎父　素夫</strong>
+          <div class="member-photo">
+            <img
+              src="assets/fam_kaitsu_father.png?v=3"
+              width="206"
+              height="220"
+              alt="新郎父 素夫のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
+          <strong>新郎父　素夫</strong>
           <p class="body">
             <span class="line">①東京都八王子</span>
             <span class="line">②バドミントン、骨董(焼物)、料理</span>
@@ -512,10 +570,17 @@
           </p>
         </article>
         <article class="member-card">
-          <div class="head">
-            <div class="avatar" aria-hidden="true"></div>
-            <strong>新郎母　晴子</strong>
+          <div class="member-photo">
+            <img
+              src="assets/fam_kaitsu_mother.png?v=3"
+              width="206"
+              height="220"
+              alt="新郎母 晴子のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
+          <strong>新郎母　晴子</strong>
           <p class="body">
             <span class="line">①東京都八王子</span>
             <span class="line">②バドミントン、競馬、動物園</span>
@@ -524,19 +589,33 @@
           </p>
         </article>
         <article class="member-card">
-          <div class="head">
-            <div class="avatar" aria-hidden="true"></div>
-            <strong>新郎兄　直央</strong>
+          <div class="member-photo">
+            <img
+              src="assets/fam_kaitsu_brother.png?v=3"
+              width="263"
+              height="300"
+              alt="新郎兄 直央のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
+          <strong>新郎兄　直央</strong>
           <p class="body"><span class="bubble">ゲーム好きな兄もいます。</span></p>
         </article>
 
         <h3>鈴木家</h3>
         <article class="member-card">
-          <div class="head">
-            <div class="avatar" aria-hidden="true"></div>
-            <strong>新婦父　勝雅</strong>
+          <div class="member-photo">
+            <img
+              src="assets/fam_suzuki_father.png?v=3"
+              width="206"
+              height="220"
+              alt="新婦父 勝雅のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
+          <strong>新婦父　勝雅</strong>
           <p class="body">
             <span class="line">①東京都品川区</span>
             <span class="line">②MLB観戦</span>
@@ -545,10 +624,17 @@
           </p>
         </article>
         <article class="member-card">
-          <div class="head">
-            <div class="avatar" aria-hidden="true"></div>
-            <strong>新婦母　智子</strong>
+          <div class="member-photo">
+            <img
+              src="assets/fam_suzuki_mother.png?v=3"
+              width="206"
+              height="230"
+              alt="新婦母 智子のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
+          <strong>新婦母　智子</strong>
           <p class="body">
             <span class="line">①東京都品川区</span>
             <span class="line">②音楽鑑賞</span>
@@ -560,10 +646,17 @@
           </p>
         </article>
         <article class="member-card">
-          <div class="head">
-            <div class="avatar" aria-hidden="true"></div>
-            <strong>新婦兄　優也</strong>
+          <div class="member-photo">
+            <img
+              src="assets/fam_suzuki_brother.png?v=3"
+              width="263"
+              height="305"
+              alt="新婦兄 優也のイラスト"
+              decoding="async"
+              loading="lazy"
+            />
           </div>
+          <strong>新婦兄　優也</strong>
           <p class="body"><span class="bubble">筋トレ好きな兄もいます。</span></p>
         </article>
       </section>
