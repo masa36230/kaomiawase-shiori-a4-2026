@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>両家顔合わせの会（2026年5月3日）｜しおり</title>
   <meta name="description" content="海津家・鈴木家 両家顔合わせの会 しおり（First Family Gathering）" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,11 +12,12 @@
     :root {
       --bg: #f4f2ef;
       --paper: #fffefb;
-      --ink: #3d3835;
-      --muted: #6e6862;
-      --line: rgba(61, 56, 53, 0.18);
+      --ink: #2a2623;
+      --muted: #5c5650;
+      --line: rgba(42, 38, 35, 0.14);
       --blob-pink: #e8d8d8;
-      --blob-taupe: #c4bdb2;
+      --safe-x: max(1rem, env(safe-area-inset-left, 0px));
+      --safe-r: max(1rem, env(safe-area-inset-right, 0px));
     }
     *,
     *::before,
@@ -28,16 +29,17 @@
       font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
       color: var(--ink);
       background: var(--bg);
-      line-height: 1.65;
-      font-size: clamp(0.95rem, 0.88rem + 0.35vw, 1.05rem);
+      line-height: 1.75;
+      font-size: 1rem;
+      -webkit-text-size-adjust: 100%;
     }
     main {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.75rem 0.75rem 2.5rem;
+      padding: 0.75rem var(--safe-x) 2.5rem var(--safe-r);
     }
 
-    /* ----- デスクトップ: Canva 書き出し（表紙・見開き） ----- */
+    /* ----- 画像（表紙・見開き）共通 ----- */
     .brochure-visual figure.spread {
       margin: 0 0 1.75rem;
       background: var(--paper);
@@ -52,275 +54,326 @@
       vertical-align: bottom;
     }
 
-    /* ----- モバイル: テキスト中心レイアウト ----- */
-    .brochure-markup {
-      display: none;
-      max-width: 40rem;
-      margin: 0 auto;
-      padding: 0.25rem 0.5rem 2rem;
-    }
-    .sheet {
-      position: relative;
-      background: var(--paper);
-      border-radius: 14px;
-      padding: clamp(1.1rem, 3vw, 1.75rem);
-      margin-bottom: 1.25rem;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
-      overflow: hidden;
-    }
-    .sheet::before {
-      content: "";
-      position: absolute;
-      inset: auto -18% -22% auto;
-      width: 58%;
-      height: 46%;
-      background: radial-gradient(ellipse at 70% 80%, rgba(196, 189, 178, 0.35) 0%, rgba(196, 189, 178, 0) 68%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .sheet::after {
-      content: "";
-      position: absolute;
-      inset: -16% auto auto -14%;
-      width: 52%;
-      height: 42%;
-      background: radial-gradient(ellipse at 20% 20%, rgba(232, 216, 216, 0.45) 0%, rgba(232, 216, 216, 0) 65%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .sheet > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      font-family: "Cinzel", "Times New Roman", serif;
-      letter-spacing: 0.12em;
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      text-align: center;
-      margin: 0 0 0.35rem;
-    }
-    h1,
-    h2,
-    h3 {
-      font-weight: 700;
-      text-align: center;
-      margin: 0 0 0.5rem;
-      line-height: 1.35;
-    }
-    h1 {
-      font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.75rem);
-    }
-    h2 {
-      font-size: clamp(1.15rem, 1rem + 0.6vw, 1.35rem);
-      margin-top: 0.25rem;
-    }
-    h3 {
-      font-size: 1.05rem;
-      text-align: left;
-      margin: 1.25rem 0 0.5rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .thankyou {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(2rem, 1.4rem + 2.5vw, 2.75rem);
-      text-align: center;
-      margin: 0.25rem 0 0.75rem;
-      color: #5a524c;
-    }
-    .families-line {
-      text-align: center;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      margin: 0 0 0.25rem;
-    }
-    .subtitle-en {
-      font-family: "Cinzel", serif;
-      text-align: center;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin: 0 0 1rem;
-    }
-    .kotobuki {
-      position: absolute;
-      right: -0.25rem;
-      top: 42%;
-      transform: translateY(-50%);
-      font-size: clamp(4.5rem, 14vw, 7rem);
-      color: rgba(232, 216, 216, 0.45);
-      font-weight: 700;
-      line-height: 1;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .cover-meta {
-      text-align: center;
-      font-weight: 600;
-      margin: 0 0 0.35rem;
-    }
-    .cover-note {
-      font-size: 0.92rem;
-      text-align: center;
-      margin: 1rem 0 0;
-      color: var(--ink);
-    }
-
-    ol.program {
-      margin: 0.5rem 0 0;
-      padding-left: 1.35rem;
-    }
-    ol.program li {
-      margin: 0.35rem 0;
-    }
-
-    .legend {
-      font-size: 0.82rem;
-      color: var(--muted);
-      text-align: center;
-      margin: 0 0 1rem;
-      line-height: 1.5;
-    }
-
-    .couple-names {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem 1.5rem;
-      margin: 0.75rem 0 1rem;
-      font-weight: 700;
-    }
-
-    table.profile {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-    table.profile th,
-    table.profile td {
-      border-bottom: 1px solid var(--line);
-      padding: 0.55rem 0.35rem;
-      vertical-align: top;
-    }
-    table.profile th {
-      width: 28%;
-      font-weight: 600;
-      text-align: center;
-      background: rgba(250, 247, 244, 0.65);
-    }
-    table.profile td {
-      width: 36%;
-    }
-
-    .person {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0.65rem 0.85rem;
-      align-items: start;
-      margin: 0.85rem 0;
-    }
-    .person .avatar {
-      width: 3.25rem;
-      height: 3.25rem;
-      border-radius: 999px;
-      background: linear-gradient(145deg, var(--blob-pink), #f0e4e4);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      flex-shrink: 0;
-    }
-    .person strong {
-      display: block;
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-    }
-    .person p {
-      margin: 0;
-      font-size: 0.88rem;
-      color: #454039;
-    }
-
-    .bubble {
-      display: inline-block;
-      margin-top: 0.35rem;
-      padding: 0.45rem 0.65rem;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(61, 56, 53, 0.1);
-      font-size: 0.86rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .mother-note {
-      font-size: 0.88rem;
-      margin: 0.75rem 0 0;
-      padding: 0.75rem 0.65rem;
-      background: rgba(250, 247, 244, 0.9);
-      border-radius: 10px;
-      border: 1px solid rgba(61, 56, 53, 0.08);
-    }
-
-    @media (max-width: 900px) {
-      .brochure-visual {
+    /* デスクトップ: 画像のみ（従来どおり） */
+    @media (min-width: 901px) {
+      .brochure-visual figure.spread {
+        margin-bottom: 1.75rem;
+      }
+      .brochure-markup {
         display: none;
+      }
+    }
+
+    /* ----- モバイル: 画像を先にフル幅で、その下にテキスト ----- */
+    @media (max-width: 900px) {
+      main {
+        padding-left: var(--safe-x);
+        padding-right: var(--safe-r);
+        max-width: none;
+      }
+      .brochure-visual {
+        display: block;
+        margin: 0 calc(50% - 50vw) 1.25rem;
+        width: 100vw;
+        max-width: 100vw;
+      }
+      .brochure-visual figure.spread {
+        margin: 0 0 2px;
+        border-radius: 0;
+        box-shadow: none;
+        background: #fff;
+      }
+      .brochure-visual figure.spread:last-of-type {
+        margin-bottom: 0;
+      }
+      .brochure-visual figure.spread img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
       }
       .brochure-markup {
         display: block;
+        max-width: 28rem;
+        margin: 0 auto;
+        padding: 0.5rem 0 2.5rem;
+      }
+      .text-version-label {
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        margin: 1.25rem 0 0.75rem;
+        padding: 0 0.25rem;
       }
     }
 
     @media (min-width: 901px) {
-      .brochure-visual {
-        display: block;
-      }
-      .brochure-markup {
+      .text-version-label {
         display: none;
       }
     }
 
-    @media (max-width: 520px) {
-      table.profile,
-      table.profile tbody,
-      table.profile tr,
-      table.profile th,
-      table.profile td {
-        display: block;
-        width: 100%;
+    /* ----- テキスト版カード（モバイル最適化・装飾は控えめ） ----- */
+    .brochure-markup .sheet {
+      position: relative;
+      background: var(--paper);
+      border-radius: 12px;
+      padding: 1.25rem 1.1rem 1.35rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--line);
+    }
+    .brochure-markup .sheet::before,
+    .brochure-markup .sheet::after {
+      display: none;
+    }
+
+    .eyebrow {
+      font-family: "Cinzel", "Times New Roman", serif;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 0.4rem;
+    }
+    .brochure-markup h1,
+    .brochure-markup h2 {
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 0.5rem;
+      line-height: 1.4;
+      font-size: 1.35rem;
+    }
+    .brochure-markup h2 {
+      font-size: 1.2rem;
+    }
+    .brochure-markup h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: left;
+      margin: 1.35rem 0 0.65rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--line);
+      line-height: 1.35;
+    }
+    .brochure-markup h3:first-of-type {
+      margin-top: 0.5rem;
+    }
+
+    .thankyou {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 0.2rem 0 0.85rem;
+      color: #4a433d;
+      line-height: 1.2;
+    }
+    .families-line {
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.35rem;
+    }
+    .subtitle-en {
+      font-family: "Cinzel", serif;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin: 0 0 1.1rem;
+    }
+    .cover-sheet {
+      overflow: visible;
+    }
+    .cover-sheet .kotobuki {
+      display: none;
+    }
+    .cover-meta {
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 0.4rem;
+      line-height: 1.55;
+    }
+    .cover-note {
+      margin: 1.15rem 0 0;
+      padding: 0 0.15rem;
+      font-size: 1rem;
+      text-align: center;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+    .cover-note br {
+      display: none;
+    }
+    @media (max-width: 900px) {
+      .cover-note br {
+        display: inline;
       }
-      table.profile th {
-        border-bottom: none;
-        padding-bottom: 0.15rem;
-        background: transparent;
+    }
+
+    ol.program {
+      margin: 0.65rem 0 0;
+      padding-left: 1.5rem;
+    }
+    ol.program li {
+      margin: 0.5rem 0;
+      padding-left: 0.15rem;
+    }
+
+    .legend {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: left;
+      margin: 0 0 1rem;
+      line-height: 1.65;
+      padding: 0.65rem 0.75rem;
+      background: rgba(0, 0, 0, 0.03);
+      border-radius: 8px;
+    }
+
+    .couple-names {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 0.75rem 0 1rem;
+      font-weight: 700;
+      font-size: 0.98rem;
+      text-align: center;
+    }
+
+    /* プロフィール: 表はデスクトップ用に残さず、常にカード行（モバイルで読みやすい） */
+    .profile-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .prof-row {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      background: #fff;
+    }
+    .prof-row h4 {
+      margin: 0 0 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+    .prof-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem 0.75rem;
+    }
+    .prof-pair > div {
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .prof-pair .side {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    @media (max-width: 360px) {
+      .prof-pair {
+        grid-template-columns: 1fr;
       }
-      table.profile td {
-        border-bottom: 1px solid var(--line);
-        padding-top: 0.15rem;
-      }
-      table.profile td:last-child {
+      .prof-pair > div:first-of-type {
         padding-bottom: 0.65rem;
-        margin-bottom: 0.35rem;
+        border-bottom: 1px dashed var(--line);
       }
+    }
+
+    .member-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.9rem 0.95rem;
+      margin-bottom: 0.75rem;
+      background: #fff;
+    }
+    .member-card .head {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.55rem;
+    }
+    .member-card .avatar {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 999px;
+      background: linear-gradient(145deg, var(--blob-pink), #f2e8e8);
+      flex-shrink: 0;
+    }
+    .member-card strong {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .member-card .body {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink);
+      margin: 0;
+    }
+    .member-card .body .line {
+      display: block;
+      margin-top: 0.35rem;
+    }
+
+    .bubble {
+      display: inline-block;
+      margin-top: 0.45rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 10px;
+      background: rgba(250, 247, 244, 0.95);
+      border: 1px solid var(--line);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .mother-note {
+      font-size: 0.95rem;
+      margin: 0.65rem 0 0;
+      padding: 0.85rem 0.8rem;
+      line-height: 1.8;
+      background: rgba(0, 0, 0, 0.025);
+      border-radius: 8px;
+      border: 1px solid var(--line);
     }
 
     @media print {
       body {
         background: #fff;
       }
-      .brochure-markup {
+      .brochure-markup,
+      .text-version-label {
         display: none !important;
       }
       .brochure-visual {
         display: block !important;
       }
+      .brochure-visual figure.spread {
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0 0 0 0;
+        width: auto;
+      }
       main {
         max-width: none;
         padding: 0;
+        margin: 0;
+      }
+      .brochure-visual {
+        margin: 0;
+        width: auto;
       }
       .brochure-visual figure.spread {
-        box-shadow: none;
-        border-radius: 0;
         page-break-after: always;
         break-after: page;
       }
@@ -336,7 +389,7 @@
     <div class="brochure-visual">
       <figure class="spread">
         <img
-          src="assets/spread_cover.png"
+          src="assets/spread_cover.png?v=2"
           width="2000"
           height="1414"
           alt="表紙。Thank you、海津家・鈴木家、両家顔合わせの会、First Family Gathering、2026年5月3日12時、個室和食「東山」新宿本店にて、および挨拶文。"
@@ -347,7 +400,7 @@
 
       <figure class="spread">
         <img
-          src="assets/spread_inner.png"
+          src="assets/spread_inner.png?v=2"
           width="2000"
           height="1414"
           alt="本日の流れ、プロフィール、家族の紹介（海津家・鈴木家）の見開き。"
@@ -357,21 +410,22 @@
       </figure>
     </div>
 
+    <span class="text-version-label">以下は同じ内容を、スマホで読みやすい形にしたテキスト版です。</span>
+
     <div class="brochure-markup">
-      <section class="sheet cover-sheet" aria-label="表紙">
+      <section class="sheet cover-sheet" aria-label="表紙（テキスト）">
         <p class="thankyou">Thank you</p>
         <p class="families-line">海津家　鈴木家</p>
         <h1>両家顔合わせの会</h1>
         <p class="subtitle-en">First Family Gathering</p>
-        <span class="kotobuki" aria-hidden="true">寿</span>
         <p class="cover-meta">2026年5月3日　12時</p>
         <p class="cover-meta">個室和食「東山」新宿本店にて</p>
-        <div class="cover-note">
-          <p>本日はお忙しい中お集まりいただき</p>
-          <p>誠にありがとうございます</p>
-          <p>両家の親睦を深めるよい機会となりますよう</p>
-          <p>よろしくお願いいたします</p>
-        </div>
+        <p class="cover-note">
+          本日はお忙しい中お集まりいただき<br />
+          誠にありがとうございます<br />
+          両家の親睦を深めるよい機会となりますよう<br />
+          よろしくお願いいたします
+        </p>
       </section>
 
       <section class="sheet" aria-labelledby="prog-h">
@@ -393,40 +447,50 @@
           <span>海津　真史</span>
           <span>鈴木　渚沙</span>
         </div>
-        <table class="profile">
-          <tbody>
-            <tr>
-              <th>生年月日</th>
-              <td>1995年10月5日</td>
-              <td>1996年8月6日</td>
-            </tr>
-            <tr>
-              <th>①出身地</th>
-              <td>神奈川県秦野市</td>
-              <td>東京都品川区</td>
-            </tr>
-            <tr>
-              <th>職業</th>
-              <td>会社員</td>
-              <td>小学校教員</td>
-            </tr>
-            <tr>
-              <th>②趣味</th>
-              <td>筋トレ・AI活用</td>
-              <td>読書・運動・睡眠</td>
-            </tr>
-            <tr>
-              <th>③好きな食べ物</th>
-              <td>食べること、掃除</td>
-              <td>ハヤシライス</td>
-            </tr>
-            <tr>
-              <th>④マイブーム</th>
-              <td>AI活用、からあげ弁当</td>
-              <td>麻雀・編み物</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="profile-rows">
+          <article class="prof-row">
+            <h4>生年月日</h4>
+            <div class="prof-pair">
+              <div><span class="side">海津　真史</span>1995年10月5日</div>
+              <div><span class="side">鈴木　渚沙</span>1996年8月6日</div>
+            </div>
+          </article>
+          <article class="prof-row">
+            <h4>①出身地</h4>
+            <div class="prof-pair">
+              <div><span class="side">海津　真史</span>神奈川県秦野市</div>
+              <div><span class="side">鈴木　渚沙</span>東京都品川区</div>
+            </div>
+          </article>
+          <article class="prof-row">
+            <h4>職業</h4>
+            <div class="prof-pair">
+              <div><span class="side">海津　真史</span>会社員</div>
+              <div><span class="side">鈴木　渚沙</span>小学校教員</div>
+            </div>
+          </article>
+          <article class="prof-row">
+            <h4>②趣味</h4>
+            <div class="prof-pair">
+              <div><span class="side">海津　真史</span>筋トレ・AI活用</div>
+              <div><span class="side">鈴木　渚沙</span>読書・運動・睡眠</div>
+            </div>
+          </article>
+          <article class="prof-row">
+            <h4>③好きな食べ物</h4>
+            <div class="prof-pair">
+              <div><span class="side">海津　真史</span>食べること、掃除</div>
+              <div><span class="side">鈴木　渚沙</span>ハヤシライス</div>
+            </div>
+          </article>
+          <article class="prof-row">
+            <h4>④マイブーム</h4>
+            <div class="prof-pair">
+              <div><span class="side">海津　真史</span>AI活用、からあげ弁当</div>
+              <div><span class="side">鈴木　渚沙</span>麻雀・編み物</div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="sheet" aria-labelledby="fam-h">
@@ -435,53 +499,73 @@
         <p class="legend">①出身地　②趣味　③好きな食べ物　④最近ハマっていること</p>
 
         <h3>海津家</h3>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
+        <article class="member-card">
+          <div class="head">
+            <div class="avatar" aria-hidden="true"></div>
             <strong>新郎父　素夫</strong>
-            <p>①東京都八王子　②バドミントン、骨董(焼物)、料理　③何でも好き　④仏の修行かなぁ</p>
           </div>
-        </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
+          <p class="body">
+            <span class="line">①東京都八王子</span>
+            <span class="line">②バドミントン、骨董(焼物)、料理</span>
+            <span class="line">③何でも好き</span>
+            <span class="line">④仏の修行かなぁ</span>
+          </p>
+        </article>
+        <article class="member-card">
+          <div class="head">
+            <div class="avatar" aria-hidden="true"></div>
             <strong>新郎母　晴子</strong>
-            <p>①東京都八王子　②バドミントン、競馬、動物園　③チーズ　④お墓参り、読書</p>
           </div>
-        </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
+          <p class="body">
+            <span class="line">①東京都八王子</span>
+            <span class="line">②バドミントン、競馬、動物園</span>
+            <span class="line">③チーズ</span>
+            <span class="line">④お墓参り、読書</span>
+          </p>
+        </article>
+        <article class="member-card">
+          <div class="head">
+            <div class="avatar" aria-hidden="true"></div>
             <strong>新郎兄　直央</strong>
-            <p><span class="bubble">ゲーム好きな兄もいます。</span></p>
           </div>
-        </div>
+          <p class="body"><span class="bubble">ゲーム好きな兄もいます。</span></p>
+        </article>
 
         <h3>鈴木家</h3>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
+        <article class="member-card">
+          <div class="head">
+            <div class="avatar" aria-hidden="true"></div>
             <strong>新婦父　勝雅</strong>
-            <p>①東京都品川区　②MLB観戦　③和食　④大谷翔平</p>
           </div>
-        </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
+          <p class="body">
+            <span class="line">①東京都品川区</span>
+            <span class="line">②MLB観戦</span>
+            <span class="line">③和食</span>
+            <span class="line">④大谷翔平</span>
+          </p>
+        </article>
+        <article class="member-card">
+          <div class="head">
+            <div class="avatar" aria-hidden="true"></div>
             <strong>新婦母　智子</strong>
-            <p>①東京都品川区　②音楽鑑賞　③ハンバーグ・お刺身　④リフトアップ・体操</p>
-            <p class="mother-note">
-              のんびりした性格の私が育ててきたので、ちょっと抜けている所がある反面、負けず嫌いでしっかり者な面もあります。でも、素直に育ってくれたと思っています。そんな娘ですが、どうぞよろしくお願いいたします。
-            </p>
           </div>
-        </div>
-        <div class="person">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
+          <p class="body">
+            <span class="line">①東京都品川区</span>
+            <span class="line">②音楽鑑賞</span>
+            <span class="line">③ハンバーグ・お刺身</span>
+            <span class="line">④リフトアップ・体操</span>
+          </p>
+          <p class="mother-note">
+            のんびりした性格の私が育ててきたので、ちょっと抜けている所がある反面、負けず嫌いでしっかり者な面もあります。でも、素直に育ってくれたと思っています。そんな娘ですが、どうぞよろしくお願いいたします。
+          </p>
+        </article>
+        <article class="member-card">
+          <div class="head">
+            <div class="avatar" aria-hidden="true"></div>
             <strong>新婦兄　優也</strong>
-            <p><span class="bubble">筋トレ好きな兄もいます。</span></p>
           </div>
-        </div>
+          <p class="body"><span class="bubble">筋トレ好きな兄もいます。</span></p>
+        </article>
       </section>
     </div>
   </main>
