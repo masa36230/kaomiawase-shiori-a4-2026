@@ -2,3 +2,4 @@
 
 - 元データ: Canva テンプレート「ブラウン　ピンク　シンプル　ミニマリスト　結婚　両家顔合わせ　しおり　A4文書」書き出し PNG（表紙・見開き）
 - 更新: `assets/spread_cover.png` / `assets/spread_inner.png` を差し替えたあと `git add` → `commit` → `push`
+- 印刷: ブラウザの印刷設定で「背景のグラフィック」を有効にすると、意図に近い色味で出やすいです。
