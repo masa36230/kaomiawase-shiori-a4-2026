@@ -17,7 +17,6 @@
       --line: rgba(61, 56, 53, 0.18);
       --blob-pink: #e8d8d8;
       --blob-taupe: #c4bdb2;
-      --soft: #faf7f4;
     }
     *,
     *::before,
@@ -51,22 +50,6 @@
       width: 100%;
       height: auto;
       vertical-align: bottom;
-    }
-    .brochure-visual .spread--inner {
-      position: relative;
-    }
-    /* 右下の「線の入ったグレーブロック」が背景と変に見えるのを、輪郭なしの柔らかい塊で馴染ませる */
-    .brochure-visual .spread--inner .corner-softener {
-      position: absolute;
-      z-index: 1;
-      pointer-events: none;
-      inset: auto 0 0 auto;
-      width: 34%;
-      height: 36%;
-      background:
-        radial-gradient(ellipse 95% 85% at 88% 92%, rgba(250, 247, 244, 0.98) 0%, rgba(250, 247, 244, 0.55) 48%, rgba(250, 247, 244, 0) 74%),
-        radial-gradient(ellipse 70% 60% at 78% 96%, rgba(232, 216, 216, 0.45) 0%, rgba(232, 216, 216, 0) 70%);
-      filter: blur(0.35px);
     }
 
     /* ----- モバイル: テキスト中心レイアウト ----- */
@@ -331,9 +314,6 @@
       .brochure-visual {
         display: block !important;
       }
-      .brochure-visual .corner-softener {
-        display: none;
-      }
       main {
         max-width: none;
         padding: 0;
@@ -365,7 +345,7 @@
         />
       </figure>
 
-      <figure class="spread spread--inner">
+      <figure class="spread">
         <img
           src="assets/spread_inner.png"
           width="2000"
@@ -374,7 +354,6 @@
           decoding="async"
           loading="lazy"
         />
-        <span class="corner-softener" aria-hidden="true"></span>
       </figure>
     </div>
 
